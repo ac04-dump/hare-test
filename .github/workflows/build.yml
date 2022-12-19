@@ -1,0 +1,22 @@
+
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Hare
+      uses: alexcoder04/setup-hare@v1
+
+    - name: Build
+      run: hare build main.ha
